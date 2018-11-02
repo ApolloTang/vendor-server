@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>React lab</title>
+  <style type="text/less">
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {background: hsl(0,30%,95%);}
+
+    button {
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+<div id="react-container"></div>
+
+<script src="http://localhost:9091/less/less-v2.7.2.min.js"></script>
+<script src="http://localhost:9091/babel/babel-standalone-v7.0.0-alpha.20.min.js"></script>
+<script src="http://localhost:9091/babel/babel-polyfill-v7.0.0-alpha.20.min.js"></script>
+
+<script src="http://localhost:9091/react/react-v16.6.0.development.js"></script>
+<script src="http://localhost:9091/react/react-dom-v16.6.0.development.js"></script>
+
+<!-- <script src="http://localhost:9091/react/react&#45;v15.1.0.js"></script> -->
+<!-- <script src="http://localhost:9091/react/react&#45;dom&#45;v15.1.0.js"></script> -->
+
+<script src="http://localhost:9091/react/react-router-v4.3.1.js"></script>
+<script src="http://localhost:9091/react/react-router-dom-v4.3.1.js"></script>
+
+<script src="http://localhost:9091/lodash/lodash-4.17.10.min.js"></script>
+
+<script>
+  console.log(`
+    _: version ${_.VERSION}
+    less: version ${less.version}
+    React: version ${React.version}
+  `);
+</script>
+
+<script type="text/babel" >
+// const Router = window.ReactRouterDOM.BrowserRouter;
+const Router = window.ReactRouterDOM.HashRouter;
+const Route =  window.ReactRouterDOM.Route;
+const Link =  window.ReactRouterDOM.Link;
+const Prompt =  window.ReactRouterDOM.Prompt;
+const Switch = window.ReactRouterDOM.Switch;
+const Redirect = window.ReactRouterDOM.Redirect
+
+
+const Home = () =>  <h2>Home</h2>
+const Hello = () =>  <h2>Hello React</h2>
+const Bye = () =>  <h2>Bye React</h2>
+
+const Location = (props) =><div>{`props.location.pathname ${props.location.pathname}`}</div>
+
+  class MyApp extends React.Component {
+
+    constructor(props) {
+      super(props);
+    }
+
+    render() {
+      return (
+          <Router>
+            <div>
+              <ul>
+                <li><Link to="/">home</Link></li>
+                <li><Link to="/hello">hello</Link></li>
+                <li><Link to="/bye">bye</Link></li>
+              </ul>
+
+              <div>
+                <Route exact path="/" component={Home} />
+                <Route  path="/hello" component={Hello} />
+                <Route  path="/bye" component={Bye} />
+              </div>
+
+              <Route path="/" component={Location} />
+            </div>
+          </Router>
+      );
+    }
+
+  }
+
+  const reactContainer = document.getElementById('react-container');
+  ReactDOM.render(<MyApp />, reactContainer);
+
+</script>
+</body>
+
+</html>
