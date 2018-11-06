@@ -49,45 +49,40 @@ const Prompt =  window.ReactRouterDOM.Prompt;
 const Switch = window.ReactRouterDOM.Switch;
 const Redirect = window.ReactRouterDOM.Redirect
 
-
-const Home = () =>  <h2>Home</h2>
-const Hello = () =>  <h2>Hello React</h2>
-const Bye = () =>  <h2>Bye React</h2>
-
-const Location = (props) =><div>{`props.location.pathname ${props.location.pathname}`}</div>
-
-  class MyApp extends React.Component {
-
-    constructor(props) {
-      super(props);
-    }
-
-    render() {
-      return (
-          <Router>
-            <div>
-              <ul>
-                <li><Link to="/">home</Link></li>
-                <li><Link to="/hello">hello</Link></li>
-                <li><Link to="/bye">bye</Link></li>
-              </ul>
-
-              <div>
-                <Route exact path="/" component={Home} />
-                <Route  path="/hello" component={Hello} />
-                <Route  path="/bye" component={Bye} />
-              </div>
-
-              <Route path="/" component={Location} />
-            </div>
-          </Router>
-      );
-    }
-
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
   }
 
-  const reactContainer = document.getElementById('react-container');
-  ReactDOM.render(<MyApp />, reactContainer);
+  render() {
+    return (
+      <Router>
+        <div>
+
+          <ul>
+            <li><Link to="/">Link to: /</Link></li>
+            <li><Link to="/a">Link to: /a</Link></li>
+            <li><Link to="/a/b">Link to: /a/b</Link></li>
+            <li><Link to="/a/b/c">Link to: /a/b/c</Link></li>
+          </ul>
+
+          <div>
+            <Route exact path="/"      component={()=>(<h2>exact path="/"     </h2>)} />
+            <Route exact path="/a"     component={()=>(<h2>exact path="/a"    </h2>)} />
+            <Route exact path="/a/b"   component={()=>(<h2>exact path="/a/b"  </h2>)} />
+            <Route exact path="/a/b/c" component={()=>(<h2>exact path="/a/b/c"</h2>)} />
+          </div>
+
+          <Route path="/" component={(props) =><div>{`props.location.pathname: ${props.location.pathname}`}</div>} />
+
+        </div>
+      </Router>
+    );
+  }
+}
+
+const reactContainer = document.getElementById('react-container');
+ReactDOM.render(<MyApp />, reactContainer);
 
 </script>
 </body>
