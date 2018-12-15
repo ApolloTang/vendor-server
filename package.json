@@ -1,0 +1,11 @@
+{
+  "name": "vendor-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ApolloTang/vendor-server.git",
+  "author": "Apollo Tang <tang.apollo@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
