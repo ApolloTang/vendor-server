@@ -1,0 +1,9 @@
+{
+  "name": "babel-standalone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/standalone": "^7.3.4"
+  }
+}

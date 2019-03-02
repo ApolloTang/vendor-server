@@ -18,18 +18,16 @@
   <script src="http://localhost:9091/lodash/lodash-4.17.10.min.js"></script>
   <script src="http://localhost:9091/rxjs/rxjs-v5.4.3-bundles-Rx.min.js"></script>
 
-  <script src="http://localhost:9091/babel/babel-standalone-v7.0.0-alpha.20.min.js"></script>
-  <script src="http://localhost:9091/babel/babel-polyfill-v7.0.0-alpha.20.min.js"></script>
+  <script src="http://localhost:9091/babel/babel-polyfill-latest.js"></script>
+  <script src="http://localhost:9091/babel/babel-standalone-latest.min.js"></script>
 
   <script>
-    console.log( `
-      _: version ${_.VERSION} </br>
-      less: version ${less.version} </br>
-    `);
+    console.log('_:'+_.VERSION)
+    console.log('less:'+less.version)
   </script>
 
   <script type="text/babel" >
-    console.log('hello')
+    console.log('hello babel')
   </script>
 </body>
 
